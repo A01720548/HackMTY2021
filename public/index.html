@@ -50,6 +50,7 @@
 
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
   <!-- Don't change the format for any other products. -->
   <!-- etc. -->
 
@@ -65,11 +66,14 @@
       appId: "1:81712710778:web:34855066b7fdd959be67c3",
       measurementId: "G-2V6V4G8MD4",
       apiKey: "AIzaSyDisDq-2iVY0jwqxoVppsbViYW6tFAwTaY",
+      databaseURL: "https://meeseeks-dd5f8-default-rtdb.firebaseio.com/",
+
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const fs = firebase.firestore();
+    let database = firebase.database();
   </script>
 
   <script src="main.js"></script>
