@@ -9,11 +9,12 @@ function convertTZ(date, tzString) {
   return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
 }
 
-function writeUserData(uid, deviceID) {
+function writeUserData(uid, deviceID,email) {
   firebase.database().ref('persona/' + uid).set({
     uid: uid,
     deviceID : deviceID,
-    date: new Date().toLocaleString('es-MX',{ timeZone: 'America/Monterrey'})
+    date: new Date().toLocaleString('es-MX',{ timeZone: 'America/Monterrey'}),
+    email: email
   });
 }
 
@@ -26,7 +27,7 @@ btn.addEventListener("click", (e) => {
     console.log(result);
     console.log("google sign in");
 
-    writeUserData(result.user.uid, deviceID)
+    writeUserData(result.user.uid, deviceID = 0 , result.user.email)
 
   })
   .catch(err => {
