@@ -14,3 +14,9 @@ btn.addEventListener("click", (e) => {
     console.log(err);
   })
 });
+
+var url_string = window.location;
+var url = new URL(url_string);
+var deviceID = url.searchParams.get("deviceID");
+
+console.log(deviceID);
