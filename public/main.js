@@ -5,10 +5,15 @@ var url_string = window.location;
 var url = new URL(url_string);
 var deviceID = url.searchParams.get("deviceID");
 
+function convertTZ(date, tzString) {
+  return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+}
+
 function writeUserData(uid, deviceID) {
   firebase.database().ref('persona/' + uid).set({
     uid: uid,
-    deviceID : deviceID
+    deviceID : deviceID,
+    date: new Date().toLocaleString('es-MX',{ timeZone: 'America/Monterrey'})
   });
 }
 
