@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Meeseeks 2.0 Login</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+
+<body>
+  <header>
+    <div class="header__div">
+      <img class="header__logo" src="assets/logo" alt="Meeseeks Logo">
+      <h1 class="header__heading">Meeseeks 2.0</h1>
+    </div>
+  </header>
+  <section class="login__section">
+    <div class="login__div">
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+      <div id="login" class="google-btn">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+        </div>
+        <p class="btn-text"><b>Sign in with Google</b></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SDK FIREBASE -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <!-- Don't change the format for any other products. -->
+  <!-- etc. -->
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      // YOUR FIREBASE CREDENTIALS HERE var 
+      authDomain: "meeseeks-dd5f8.firebaseapp.com",
+      projectId: "meeseeks-dd5f8",
+      storageBucket: "meeseeks-dd5f8.appspot.com",
+      messagingSenderId: "81712710778",
+      appId: "1:81712710778:web:34855066b7fdd959be67c3",
+      measurementId: "G-2V6V4G8MD4",
+      apiKey: "AIzaSyDisDq-2iVY0jwqxoVppsbViYW6tFAwTaY",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const fs = firebase.firestore();
+  </script>
+
+  <script src="main.js"></script>
+
+</body>
+
+
+</html>
