@@ -5,6 +5,7 @@ let hashKey;
 
 const btnUnlink = document.getElementById("unlink");
 const btnLink = document.getElementById("link");
+const btnSos = document.getElementById("sos");
 
 function writeUserDataLink(uid, deviceID, email) {
     hashKey = firebase.database().ref('persons/').push({
@@ -50,5 +51,16 @@ btnUnlink.addEventListener("click", (e) => {
     e.preventDefault();
     writeUserDataUnlink(localStorage.uid, localStorage.deviceid);
     //location.href = "loggedOut.html"
+});
+
+btnSos.addEventListener("click", (e) => {
+    console.log('Jalo')
+    e.preventDefault();
+
+    arrHashes = [];
+    //location.href = "loggedOut.html"
+    firebase.database().ref('persons/').on('value', function(snapshot){
+        arrHashes.push()
+    });
 });
 
