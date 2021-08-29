@@ -120,27 +120,66 @@ footer p {
 }
 
 .link__btn {
-  padding: 10px 30px;
-  background-color: #60ccf2;
-  border: 1px solid black;
-  margin: 10px;
-  border-radius: 20px;
-  color: white;
-  width: 100%;
-  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #60ccf2;
+  border-radius: 0.6em;
+  color: #60ccf2;
   cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
 
 .sos__btn {
-  padding: 10px 30px;
-  background-color: red;
-  border: 1px solid black;
-  margin: 10px;
-  border-radius: 20px;
-  color: white;
-  width: 100%;
-  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid red;
+  border-radius: 0.6em;
+  color: red;
   cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.sos__btn:hover,
+.sos__btn:focus,
+.link__btn:hover,
+.link__btn:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.sos__btn,
+.link__btn {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.sos__btn:hover {
+  box-shadow: 0 0 40px 40px red inset;
+}
+
+.link__btn:hover {
+  box-shadow: 0 0 40px 40px #60ccf2 inset;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
