@@ -6,18 +6,17 @@
 #define echo D6
 #define button D7
 
-#define WIFI_SSID "cambio-WiFi-por-despensa" 
-#define WIFI_PASSWORD "carneasada3508"
-#define FIREBASE_HOST "meeseeks-dd5f8-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "DBP3zzcNqJlMt7hMPkSODkSbBt6xUQMLqpVRkVvr"
+#define WIFI_SSID "" 
+#define WIFI_PASSWORD ""
+#define FIREBASE_HOST ""
+#define FIREBASE_AUTH ""
 
 int contId=0;
 float distancia; //variable de distancia para ultrasónico
 bool contacto;  //variable si se hizo contacto con una persona
 String idLocal="1"; //id preestablecido para identificar contacto con otro dipositivo
-String readPath="meeseeks-dd5f8-default-rtdb.firebaseio.com/pairs/10";  //base de datos
 String hash="",hashSujeto="",idSujeto="",emailSujeto="";  //variables para búsquedas
-String vecId[]={"5","10","15","20"};
+String vecId[]={"5","10","15","20"}; //dispositivos preestablecidos
 
 
 float ultrasonico(){ //medición de distancia
