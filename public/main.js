@@ -31,12 +31,12 @@ btn.addEventListener("click", (e) => {
     localStorage.setItem("deviceid", `${deviceID}`);
     localStorage.setItem("uid", `${result.user.uid}`);
     localStorage.setItem("email", `${result.user.email}`);
+    location.href = "loggedIn.html"
   })
     .catch(err => {
       console.log(err);
     })
 
-  location.href = "loggedIn.html"
 });
 
 

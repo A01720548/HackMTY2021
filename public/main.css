@@ -119,4 +119,15 @@ footer p {
   color: #60ccf2;
 }
 
+.link__btn {
+  padding: 10px 30px;
+  background-color: #60ccf2;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
