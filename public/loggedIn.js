@@ -72,7 +72,7 @@ btnSos.addEventListener("click", (e) => {
     //location.href = "loggedOut.html"
     let counter = 0;
     let keys;
-    firebase.database().ref().child('persons/').on('value', function(snapshot){
+    firebase.database().ref().child('persons/').on('value', function (snapshot) {
         keys = Object.keys(snapshot.val());
         console.log(snapshot.val())
         var childKey = snapshot.child(`persons/${keys[0]}`).key;
@@ -83,37 +83,30 @@ btnSos.addEventListener("click", (e) => {
             var childKey = snapshot.child(`persons/${keys[i]}`).key;
             if (snapshot.val()[`${childKey}`].uid === localStorage.uid) {
                 console.log('Hello w')
-                
+
                 propertyNames = Object.values(snapshot.val()[`${childKey}`].contacts);
                 console.log(propertyNames)
                 arrHashes.push(propertyNames)
             }
         }
-        
+
         emailArray = arrHashes.flat();
         uniqueMails = [...new Set(emailArray)]
         console.log(uniqueMails)
         setTimeout(() => {
-            sendmail()
+            for (let i = 0; i < uniqueMails.length; i++) {
+                Email.send({
+                    Host: "smtp.elasticemail.com",
+                    Username: "a01720623@itesm.mx",
+                    Password: "005AECA979896234318883738E17D1056B96",
+                    To: uniqueMails[i],
+                    From: "a01720623@itesm.mx",
+                    Subject: "COVID WARNING",
+                    Body: "Someone you were in contact with started presenting symptoms."
+                })
+            }
         }, 1000);
 
     });
 });
-
-console.log(uniqueMails);
-
-(function () {
-    emailjs.init("user_7J65SqUAULCK8LWuLbKk4");
-})();
-
-function sendmail() {
-    let userEmail = emailArray;
-    console.log('ENtro')
-
-        var contactParams = {
-            from_email: userEmail,
-        };
-
-        emailjs.send('service_439xm8l', 'template_r2bjtem', contactParams).then(function (res) {})
-}
 
