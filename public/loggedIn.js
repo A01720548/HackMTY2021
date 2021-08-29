@@ -1,6 +1,6 @@
 var h2 = document.getElementById('deviceText');
 // let todaysDate = new Date().toLocaleDateString('es-MX').replaceAll('/','');
-h2.innerHTML = `You Scanned TraceBand: #${localStorage.deviceid}`;
+h2.innerHTML = `You scanned TraceBand: #${localStorage.deviceid}`;
 let hashKey;
 let arrHashes = [];
 let emailArray = [];
