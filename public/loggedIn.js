@@ -16,7 +16,6 @@ function writeUserDataLink(uid, deviceID, email) {
     }).key;
 
     firebase.database().ref(`pairs/${deviceID}`).set({ // estaba en set
-        deviceID:deviceID,
         hash: hashKey,
     });
 }
@@ -33,7 +32,6 @@ function writeUserDataUnlink(uid, deviceID) {
         });
 
         firebase.database().ref(`pairs/${deviceID}`).set({ // estaba en set
-        deviceID:deviceID,
         hash: null
         });
     }, 100);
