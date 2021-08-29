@@ -128,6 +128,7 @@ footer p {
   color: white;
   width: 100%;
   font-family: "Roboto", sans-serif;
+  cursor: pointer;
 }
 
 .sos__btn {
@@ -139,6 +140,7 @@ footer p {
   color: white;
   width: 100%;
   font-family: "Roboto", sans-serif;
+  cursor: pointer;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);

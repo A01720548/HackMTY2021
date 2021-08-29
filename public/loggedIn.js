@@ -28,6 +28,10 @@ function writeUserDataLink(uid, deviceID, email) {
     firebase.database().ref(`pairs/${deviceID}`).set({ // estaba en set
         hash: hashKey,
     });
+
+    setTimeout(() => {
+        location.href = "linked.html"
+    }, 1000);
 }
 
 
@@ -108,5 +112,9 @@ btnSos.addEventListener("click", (e) => {
         }, 1000);
 
     });
+
+    setTimeout(() => {
+        location.href = "covid.html"
+    }, 1000);
 });
 
