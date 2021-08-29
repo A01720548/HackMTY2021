@@ -4,6 +4,7 @@ h2.innerHTML = `You Scanned Device: ${localStorage.deviceid}`;
 let hashKey;
 let arrHashes = [];
 let emailArray = [];
+let uniqueMails;
 
 firebase.database().ref('pairs/' + localStorage.deviceid).on('value', function (snapshot) {
     hashKey = snapshot.val()?.hash;
@@ -90,15 +91,29 @@ btnSos.addEventListener("click", (e) => {
         }
         
         emailArray = arrHashes.flat();
-        console.log(emailArray)
+        uniqueMails = [...new Set(emailArray)]
+        console.log(uniqueMails)
+        setTimeout(() => {
+            sendmail()
+        }, 1000);
 
-        // const arrContacts = snapshot.val().map((item) => {
-        //     if (typeof item === 'object') {
-        //         return item
-        //     }
-        // })
     });
 });
 
-console.log(emailArray);
+console.log(uniqueMails);
+
+(function () {
+    emailjs.init("user_7J65SqUAULCK8LWuLbKk4");
+})();
+
+function sendmail() {
+    let userEmail = emailArray;
+    console.log('ENtro')
+
+        var contactParams = {
+            from_email: userEmail,
+        };
+
+        emailjs.send('service_439xm8l', 'template_r2bjtem', contactParams).then(function (res) {})
+}
 
