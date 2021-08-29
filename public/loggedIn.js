@@ -23,20 +23,20 @@ function writeUserDataLink(uid, deviceID, email) {
 
 
 function writeUserDataUnlink(uid, deviceID) {
-    firebase.database().ref('pairs/'+deviceID).on('value', function(snapshot){
+    firebase.database().ref('pairs/' + deviceID).on('value', function (snapshot) {
         hashKey = snapshot.val().hash;
         console.log(snapshot.val().hash)
     });
     setTimeout(() => {
         firebase.database().ref(`persons/${hashKey}`).update({
-        dateEnd: new Date().toLocaleString('es-MX', { timeZone: 'America/Monterrey' }),
+            dateEnd: new Date().toLocaleString('es-MX', { timeZone: 'America/Monterrey' }),
         });
 
         firebase.database().ref(`pairs/${deviceID}`).set({ // estaba en set
-        hash: null
+            hash: null
         });
     }, 100);
-    
+
 }
 
 
@@ -50,7 +50,10 @@ btnUnlink.addEventListener("click", (e) => {
     console.log('Jalo')
     e.preventDefault();
     writeUserDataUnlink(localStorage.uid, localStorage.deviceid);
-    //location.href = "loggedOut.html"
+
+    setTimeout(() => {
+        location.href = "loggedOut.html"
+    }, 1000);
 });
 
 btnSos.addEventListener("click", (e) => {
