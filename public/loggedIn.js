@@ -1,5 +1,5 @@
 var h2 = document.getElementById('deviceText');
-let todaysDate = new Date().toLocaleDateString('es-MX').replaceAll('/','');
+// let todaysDate = new Date().toLocaleDateString('es-MX').replaceAll('/','');
 h2.innerHTML = `You Scanned Device: ${localStorage.deviceid}`;
 let hashKey;
 
@@ -20,15 +20,24 @@ function writeUserDataLink(uid, deviceID, email) {
         hash: hashKey,
     });
 }
-function writeUserDataUnlink(uid, deviceID) {
-    firebase.database().ref(`persons/${hashKey}`).update({
-        dateEnd: new Date().toLocaleString('es-MX', { timeZone: 'America/Monterrey' }),
-    });
 
-    firebase.database().ref(`pairs/${deviceID}`).set({ // estaba en set
+
+function writeUserDataUnlink(uid, deviceID) {
+    firebase.database().ref('pairs/'+deviceID).on('value', function(snapshot){
+        hashKey = snapshot.val().hash;
+        console.log(snapshot.val().hash)
+    });
+    setTimeout(() => {
+        firebase.database().ref(`persons/${hashKey}`).update({
+        dateEnd: new Date().toLocaleString('es-MX', { timeZone: 'America/Monterrey' }),
+        });
+
+        firebase.database().ref(`pairs/${deviceID}`).set({ // estaba en set
         deviceID:deviceID,
         hash: null
-    });
+        });
+    }, 100);
+    
 }
 
 
